@@ -10,7 +10,7 @@
 				dropZone: $(this),
 				fileTypeWhiteList: [],
 				badFileTypeMessage: 'Sorry, we\'re unable to accept this type of file.',
-				ajaxUrl: 'https://api.yimian.xyz/upload/imgbed',
+				ajaxUrl: 'https://api.yimian.xyz/upload/',
 				testMode: false
 			}, options);
 			var state = {
@@ -152,7 +152,7 @@
 					$('#disabled').text('上传中，请稍等......');
 					$.ajax({
 						type: 'POST',
-						url: options.ajaxUrl,
+						url: options.ajaxUrl+'?fp='+page.fp,
 						data: data,
 						dataType: 'json',
 						cache: false,
