@@ -159,18 +159,27 @@
 						contentType: false,
 						processData: false,
 						success: function(res) {
+							clearInterval(_timer);
 							if (res.code >= 300) {
 								console.info(res.code);
 								alert('上传时发生了点小插曲，请打开控制器查看原因！')
-							}
-							clearInterval(_timer);
-							$('#text').show();
-							let s = '';
-							for (let i in res.data) {
-								s += res.data[i];
-								s += '\n\n'
-							}
-							$('#text').val(s);
+							}else{
+                                $('#text').show();
+                                let s = '';
+                                for (let i in res.data) {
+                                    s += res.data[i];
+                                    s += '\n\n'
+                                }
+                                tips.info({
+                                    title: 'info',
+                                    message: '请耐心等待几分钟使链接生效哦~'
+                                });
+                                tips.success({
+                                    title: 'success',
+                                    message: '生成链接成功！！'
+                                });
+                                $('#text').val(s);
+                            }
 							$('#disabled').attr("disabled", false);
 							$('.js-upload-remove-button').click();
 							$('#disabled').text('上传选择的文件')
