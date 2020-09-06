@@ -45,10 +45,10 @@ function select(){
 (function(){
     var options = {};
     $('.js-uploader__box').uploader({
-    	'selectButtonCopy':'请选择或拖拽文件',
-    	'instructionsCopy':'你可以选择或拖拽多个文件',
-    	'submitButtonCopy':'上传选择的文件',
-    	'furtherInstructionsCopy':'你可以选择或拖拽更多的文件',
-    	'secondarySelectButtonCopy':'选择更多的文件'
+    	'selectButtonCopy': '<span class=".zh">请选择或拖拽文件</span><span class=".en">Please select or drag and drop files</span>',
+    	'instructionsCopy': '<span class=".zh">你可以选择或拖拽多个文件</span><span class=".en">You can select or drag multiple files</span>',
+    	'submitButtonCopy': '<span class=".zh">上传选择的文件</span><span class=".en">Upload selected file</span>',
+    	'furtherInstructionsCopy': '<span class=".zh">你可以选择或拖拽更多的文件</span><span class=".en">You can select or drag and drop more files</span>',
+    	'secondarySelectButtonCopy':'<span class=".zh">选择更多的文件</span><span class=".en">Select more files</span>'
     });
 }());

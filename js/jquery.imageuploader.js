@@ -149,7 +149,10 @@
 					}
 					size = 0;
 					$('#disabled').attr("disabled", true);
-					$('#disabled').text('上传中，请稍等......');
+					if(page.tran.getLang() == 'zh')
+						$('#disabled').text('上传中，请稍等......');
+					else
+						$('#disabled').text('Uploading......');
 					$.ajax({
 						type: 'POST',
 						url: options.ajaxUrl+'?fp='+page.fp,
@@ -162,7 +165,11 @@
 							clearInterval(_timer);
 							if (res.code >= 300) {
 								console.info(res.code);
-								alert('上传时发生了点小插曲，请打开控制器查看原因！')
+                                if(page.tran.getLang() == 'zh')
+								    alert('上传时发生了点小插曲，请打开控制器查看原因！');
+                                else
+                                    alert('An accident occurred during upload, please open the console to check the reason!');
+
 							}else{
                                 $('#text').show();
                                 let s = '';
@@ -170,30 +177,48 @@
                                     s += res.data[i];
                                     s += '\n\n'
                                 }
-                                tips.info({
-                                    title: 'info',
-                                    message: '请耐心等待几分钟使链接生效哦~'
-                                });
-                                tips.success({
-                                    title: 'success',
-                                    message: '生成链接成功！！'
-                                });
+
+                                if(page.tran.getLang() == 'zh')
+                                    tips.info({
+                                        message: '请耐心等待几分钟使链接生效哦~'
+                                    });
+                                else
+                                    tips.info({
+                                        message: 'Please wait a few minutes for the link to take effect~'
+                                    });
+                                if(page.tran.getLang() == 'zh')
+                                    tips.success({
+                                        message: '生成链接成功！！'
+                                    });
+                                else
+                                    tips.success({
+                                        message: 'Link generated successfully!!'
+                                    });
                                 $('#text').val(s);
                             }
 							$('#disabled').attr("disabled", false);
 							$('.js-upload-remove-button').click();
-							$('#disabled').text('上传选择的文件')
+                            if(page.tran.getLang() == 'zh')
+							     $('#disabled').text('上传选择的文件')
+                             else
+                                $('#disabled').text('Choose files to upload')
 						},
 						xhr: xhrOnProgress(function(e) {
 							if ((Math.floor(e.loaded / e.total * 100) - 1) == 99) {
 								_tmp = 62;
 								_timer = setInterval(() => {
 									if (_tmp < 100) {
-										$('#disabled').text('配置生效中..您现在可以关闭此页面，链接将在几分钟内生效 (' + (_tmp++) + '% 处理中)');
+										if(page.tran.getLang() == 'zh')
+											$('#disabled').text('配置生效中..您现在可以关闭此页面，链接将在几分钟内生效 (' + (_tmp++) + '% 处理中)');
+										else
+											$('#disabled').text('The configuration is in effect.. You can close this page now and the link will take effect in a few minutes  (' + (_tmp++) + '% Processing)');
 									}
 								}, 1000)
 							};
-							$('#disabled').text('队列上传中. 可能需要一些时间. (' + (Math.floor(e.loaded / e.total * 100 / 1.6) - 1) + '% ' + (((Math.floor(e.loaded / e.total * 100) - 1) == 99) ? '处理中' : '上传中') + ')')
+							if(page.tran.getLang() == 'zh')
+								$('#disabled').text('队列上传中. 可能需要一些时间. (' + (Math.floor(e.loaded / e.total * 100 / 1.6) - 1) + '% ' + (((Math.floor(e.loaded / e.total * 100) - 1) == 99) ? '处理中' : '上传中') + ')')
+							else
+								$('#disabled').text('Queue upload. It may take some time. (' + (Math.floor(e.loaded / e.total * 100 / 1.6) - 1) + '% ' + (((Math.floor(e.loaded / e.total * 100) - 1) == 99) ? 'Processing' : 'Uploading') + ')')
 						})
 					})
 				}

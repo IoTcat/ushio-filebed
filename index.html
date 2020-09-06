@@ -11,15 +11,16 @@
     <link rel="stylesheet" href="./style/hwLayer.css">
 	<link rel="stylesheet" type="text/css" href="./style/main.css">
 	<link href="./style/styles.imageuploader.css" rel="stylesheet" type="text/css">
-	<script src="https://cdn.yimian.xyz/ushio-js/ushio-head.min.js"></script>
-    <script>//page.auth = ['any'];</script>
+  <script type="text/javascript">block_aplayer = true; lang = ['zh', 'en'];</script>
+  <script src="https://cdn.yimian.xyz/ushio-js/ushio-head.min.js"></script>
+  <script type="text/javascript">page.proj = 'iotcat/ushio-filebed';</script>
   </head>
   <body class="body">
-	<div class="uploade" id="display"><p id="hide">X关闭</p>
+  <div class="uploade" id="display"><p id="hide">X<span class=".zh">关闭</span><span class=".en">close</span></p>
 	  <div class="uploader__box js-uploader__box l-center-box">
 	      <form action="#" method="POST">
 	          <div class="uploader__contents">
-	              <label class="button button--secondary" for="fileinput">请选择文件</label>
+                <label class="button button--secondary" for="fileinput"><span class=".zh">请选择文件</span><span class=".en">Please upload your file..</span></label>
 	              <input id="fileinput" class="uploader__file-input" type="file" multiple value="Select Files">
 	          </div>
 	          <input class="button button--big-bottom" type="submit" value="Upload Selected Files">
@@ -37,8 +38,7 @@
                 <ul class="nav masthead-nav">
 
 					<!--<li><a id="ushio-img" href="https://img.yimian.xyz/imgbed.html"> <span class="glyphicon glyphicon-picture"></span> 探索</a></li>-->
-					<li><a id="ushio-blog" href="https://www.eee.dog/"> <span class="glyphicon glyphicon-home"></span> 博客</a></li>
-					<li><a id="ushio-iotcatme" href="https://iotcat.me/">关于</a></li>
+          <li><a id="ushio-iotcatme" href="https://ushio.cool/"><span class=".zh">关于</span><span class=".en">About</span></a></li>
 
                 </ul>
               </nav>
@@ -46,12 +46,14 @@
           </div>
           <div class="inner cover">
           	<br>
-            <h1 class="cover-heading" style="font-size: 36px;padding-bottom: 15px;">上传分享您的文件</h1>
+            <h1 class="cover-heading" style="font-size: 36px;padding-bottom: 15px;"><span class=".zh">上传分享您的文件</span><span class=".en">Upload and share your files</span></h1>
             <br/><br>
-            <p class="lead">托管于华为云对象存储，文件保留24小时，快来尝试吧~</p>
-			<p class="lead">如果需要永久储存图片，请使用<a href="https://imgbed.yimian.xyz">呓喵酱の图床</a></p>
+
+<span class=".zh">            <p class="lead">托管于华为云对象存储，文件保留24小时，快来尝试吧~</p>
+      <p class="lead">如果需要永久储存图片，请使用<a href="https://imgbed.yimian.xyz">呓喵酱の图床</a></p></span><span class=".en">            <p class="lead">Hosted in HUAWEI CLOUD Object Storage, files are kept for 24 hours, come and try~</p>
+      <p class="lead">If you need to store pictures permanently, please use <a href="https://imgbed.yimian.xyz">呓喵酱の图床</a></p></span>
             <p class="lead">
-              <a href="javascript:volid(0)" id="upload" style="background: transparent;color: #FFF;" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-cloud-upload"></span> 开始上传</a>
+              <a href="javascript:volid(0)" id="upload" style="background: transparent;color: #FFF;" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-cloud-upload"></span> <span class=".zh">开始上传</span><span class=".en">Start upload</span></a>
             </p>
           </div>
           <div class="mastfoot">
